@@ -11,7 +11,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // Check if GitHub token, owner, and repo are provided as command line arguments
-const [token, owner, repo, workflowName, artifactName] = process.argv.slice(2);
+const [token, ownerrepo, workflowName, artifactName] = process.argv.slice(2);
+
+const [owner, repo] = ownerrepo.split('/');
 
 if (!token || !owner || !repo || !workflowName || !artifactName) {
     console.error("Usage: node downloadArtifacts.js <GITHUB_TOKEN> <OWNER> <REPO> <WORKFLOW_NAME> <ARTIFACT_NAME>");
